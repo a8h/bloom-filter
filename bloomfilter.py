@@ -29,10 +29,13 @@ def checkMessage(message):
     truebits = _generate_hashes(message)
     return all([filter[hash] for hash in truebits])
 
+def view_filter():
+    return ['X' if i else ' ' for i in filter]
 
 def test():
+    print("Filter before adding any messages: {}".format(view_filter()))
     addMessage(test_message)
-    print(filter)
+    print("Filter after adding message '{}' : {}".format(test_message, view_filter()))
     print(checkMessage(test_message))
     print(checkMessage("hello"))
 
